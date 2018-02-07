@@ -11,8 +11,11 @@ public class Boletin19 {
         Libreria lib=new Libreria();
         ArrayList <Libro> libreria =new ArrayList();
         lib.engadirLibros(libreria);
-        lib.engadirLibros(libreria);
+        //lib.engadirLibros(libreria);
         lib.amosarLibros(libreria);
+        //lib.venderLibros(libreria);
+        //lib.amosarLibros(libreria);
+        lib.consultar(libreria);
         
 
     }
