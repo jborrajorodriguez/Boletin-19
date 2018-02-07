@@ -60,6 +60,13 @@ public class Libro {
     public void setNumUni(int numUni) {
         this.numUni=numUni;
     }
+
+    @Override
+    public String toString() {
+        return ("Titulo :"+titulo+" Autor: "+autor+" ISBN :"+isbn+" Prezo: "+prezo+" Numero de unidades: "+numUni);
+    }
+    
+    
     
 
 }
