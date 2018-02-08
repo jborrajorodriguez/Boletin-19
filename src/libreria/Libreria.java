@@ -42,7 +42,7 @@ public class Libreria {
         while (it.hasNext()) {
 
             Libro libro=(Libro) it.next();
-            System.out.println(libro.getAutor()+" "+libro.getTitulo()+" "+libro.getIsbn()+" "+libro.getPrezo()+"  "+libro.getNumUni());
+            System.out.println(libro.toString());
         }
 
     }
