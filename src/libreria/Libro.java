@@ -2,7 +2,7 @@ package libreria;
 /**
  * @author Juan Borrajo Rodriguez Nº5937
  */
-public class Libro {
+public class Libro implements Comparable {
     
     private String titulo,autor,isbn;
     private float prezo;
@@ -64,6 +64,16 @@ public class Libro {
     @Override
     public String toString() {
         return ("Titulo :"+titulo+" Autor: "+autor+" ISBN :"+isbn+" Prezo: "+prezo+" Numero de unidades: "+numUni);
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        Libro libro=(Libro)o;
+        if(titulo.compareToIgnoreCase(libro.getTitulo())>0){return 1;
+        
+        }else if(titulo.compareToIgnoreCase(libro.getTitulo())==0){return 0;
+        
+        }else return -1;
     }
     
     
