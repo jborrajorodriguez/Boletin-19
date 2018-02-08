@@ -71,18 +71,15 @@ public class Libreria {
                 case 1:
                     String titulo=JOptionPane.showInputDialog("Esribe el titulo del libro");
                     for (int i=0; i<libreria.size(); i++) {
-                        if (libreria.get(i).getTitulo().equals(titulo)) {
+                        if (libreria.get(i).getTitulo().equalsIgnoreCase(titulo)) {
                             Libro libro=libreria.get(i);
                             System.out.println(libro.toString());
-                            marca=0;
-                        }
-                        else {
                             marca=1;
-
                         }
+                        
 
                     }
-                    if (marca==1) {
+                    if (marca==0) {
                         System.out.println("No hay ningun libro con ese titulo");
                     }
                     break;
@@ -92,15 +89,12 @@ public class Libreria {
                         if (libreria.get(i).getAutor().equals(autor)) {
                             Libro libro=libreria.get(i);
                             System.out.println(libro.toString());
-                            marca=0;
-                        }
-                        else {
                             marca=1;
-
                         }
+                        
 
                     }
-                    if (marca==1) {
+                    if (marca==0) {
                         System.out.println("No hay ningun libro con ese Autor");
                     }
 
@@ -113,6 +107,7 @@ public class Libreria {
                             Libro libro=libreria.get(i);
                             System.out.println(libro.toString());
                             marca=0;
+                            break;
                         }
                         else {
                             marca=1;
