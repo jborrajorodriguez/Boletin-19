@@ -1,5 +1,6 @@
 package libreria;
 
+import java.util.Collections;
 import java.util.ArrayList;
 import java.util.Iterator;
 import javax.swing.JOptionPane;
@@ -47,19 +48,21 @@ public class Libreria {
     }
 
     public void darDeBaixa(ArrayList<Libro> libreria) {
+        int marca=0;
         for (int i=0; i<libreria.size(); i++) {
             if (libreria.get(i).getNumUni()==0) {
                 libreria.remove(i);
             }
-            else {
-                System.out.println("No hay libros sin unidades");
-            }
+//            else {
+//                marca=1;
+//            }}if(marca==1){System.out.println("No hay libros sin unidades");}
 
         }
     }
 
     public void consultar(ArrayList<Libro> libreria) {
         int m;
+        int marca=0;
         do {
             m=Integer.parseInt(JOptionPane.showInputDialog("Metodo de busqueda \n1 Busqueda por titulo \n2 Busqueda por autor \n3 Busqueda por ISBN \n 0 volver"));
 
@@ -71,11 +74,16 @@ public class Libreria {
                         if (libreria.get(i).getTitulo().equals(titulo)) {
                             Libro libro=libreria.get(i);
                             System.out.println(libro.toString());
+                            marca=0;
                         }
                         else {
-                            System.out.println("No hay ningun libro con ese titulo");
+                            marca=1;
 
                         }
+
+                    }
+                    if (marca==1) {
+                        System.out.println("No hay ningun libro con ese titulo");
                     }
                     break;
                 case 2:
@@ -84,31 +92,48 @@ public class Libreria {
                         if (libreria.get(i).getAutor().equals(autor)) {
                             Libro libro=libreria.get(i);
                             System.out.println(libro.toString());
+                            marca=0;
                         }
                         else {
-                            System.out.println("No hay ningun libro con ese autor");
+                            marca=1;
 
                         }
+
                     }
+                    if (marca==1) {
+                        System.out.println("No hay ningun libro con ese Autor");
+                    }
+
                     break;
+
                 case 3:
                     String isbn=JOptionPane.showInputDialog("Esribe el ISBN del libro");
                     for (int i=0; i<libreria.size(); i++) {
                         if (libreria.get(i).getIsbn().equals(isbn)) {
                             Libro libro=libreria.get(i);
                             System.out.println(libro.toString());
+                            marca=0;
                         }
                         else {
-                            System.out.println("No hay ningun libro con ese ISBN");
+                            marca=1;
 
                         }
+
+                    }
+                    if (marca==1) {
+                        System.out.println("No hay ningun libro con ese ISBN");
                     }
                     break;
 
             }
-
         }
         while (m!=0);
 
     }
+
+    public void ordenar(ArrayList<Libro> libreria) {
+        Collections.sort(libreria);
+        this.amosarLibros(libreria);
+    }
+
 }
